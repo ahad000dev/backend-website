@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_register">
+        <div class="registerBox bg_container" style="position: relative;">
+        <a href="index.html" style="position: absolute; top: 18px; right: 22px; color: #173b67; font-weight: 700; text-decoration: none; z-index: 1;">Log in</a>
+        <form action="" id="registerform" class="register bg_container">
+            <div class="registerHeading bg_container">Register</div>
+            <div class="registerContainer bg_container">
+                <label class="userInfo bg_container" for="registername">Username: <input type="text" id="registername" class="userInput" required autocomplete="username"></label>
+                <label class="userInfo bg_container" for="registeremail">Email: <input type="email" id="registeremail" class="userInput" required autocomplete="email"></label>
+                <label class="userInfo bg_container" for="registerpassword">Password: <input type="password" id="registerpassword" class="userInput" required minlength="6" autocomplete="new-password"></label>
+            </div>
+            <div class="registerBtn bg_container"><button type="submit" id="registerBtn">Create account</button></div>
+        </form>
+    </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

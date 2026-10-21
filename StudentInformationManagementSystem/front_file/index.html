@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user log in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_login">
+        <div class="loginBox bg_container" style="position: relative;">
+            <a href="register.html" style="position: absolute; top: 18px; right: 22px; color: #173b67; font-weight: 700; text-decoration: none; z-index: 1;">Register</a>
+            <form action="" id="loginform" class="login bg_container">
+                <div class="logInHeading bg_container">Log In</div>
+                <div class="logInContainer bg_container">
+                    <label class="userInfo bg_container" for="loginname">Username: <input type="text" id="loginname" class="userInput" required autocomplete="username"></label>
+                    <label class="userInfo bg_container" for="loginpassword">Password: <input type="password" id="loginpassword" class="userInput" required autocomplete="current-password"></label>
+                </div>
+                <div class="logInBtn bg_container"><button type="submit" id="logInBtn">Log In</button></div>
+            </form>
+        </div>
+    </div>
+  <script src="script.js"></script>
+</body>
+</html>

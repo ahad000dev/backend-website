@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell" id="studentApp">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">STUDENT DIRECTORY</p>
+          <h1>Manage your students</h1>
+          <p class="subheading">
+            Keep every student detail organised in one thoughtful place.
+          </p>
+        </div>
+        <button class="primary-button" type="button" onclick="openAddForm()">
+          + Add student
+        </button>
+        <button class="logout-button" type="button" onclick="logoutForm()">
+          Sign out
+        </button>
+      </header>
+      <section class="table-card">
+        <div class="toolbar">
+          <label class="search"
+            ><span>⌕</span
+            ><input
+              id="searchInput"
+              type="search"
+              placeholder="Search students by name"
+          /></label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <nav id="pagination" aria-label="Student list pages"></nav>
+      </section>
+    </main>
+    <div class="mainHover"></div>
+    <section class="modal viewStudent" aria-modal="true" role="dialog">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">STUDENT PROFILE</p>
+          <h2>Student details</h2>
+        </div>
+        <button class="close-button" type="button" onclick="closeModals()">
+          ×
+        </button>
+      </div>
+      <div class="profile-hero">
+        <div class="profile-large">
+          <img id="viewImage" alt="Student profile" /><span
+            id="viewInitial"
+          ></span>
+        </div>
+        <div>
+          <h3 id="viewName"></h3>
+          <span id="viewGender" class="badge"></span>
+        </div>
+      </div>
+      <dl class="details">
+        <div>
+          <dt>Email</dt>
+          <dd id="viewEmail"></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd id="viewPhone"></dd>
+        </div>
+      </dl>
+    </section>
+    <section
+      class="modal form-modal"
+      id="addModal"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">NEW STUDENT</p>
+          <h2>Add student</h2>
+        </div>
+        <button class="close-button" type="button" onclick="closeModals()">
+          ×
+        </button>
+      </div>
+      <form id="addForm" enctype="multipart/form-data" class="student-form">
+        <label>Name<input type="text" name="name" required /></label
+        ><label>Email<input type="email" name="email" required /></label
+        ><label>Phone<input type="tel" name="phone" required /></label
+        ><label
+          >Gender<select name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select></label
+        ><label class="full-width"
+          >Profile picture<input
+            type="file"
+            name="profile_pic"
+            accept="image/*" /></label
+        ><button class="primary-button full-width" type="submit">
+          Save student
+        </button>
+      </form>
+    </section>
+    <section
+      class="modal form-modal"
+      id="updateModal"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">EDIT STUDENT</p>
+          <h2>Update details</h2>
+        </div>
+        <button class="close-button" type="button" onclick="closeModals()">
+          ×
+        </button>
+      </div>
+      <form id="updateForm" enctype="multipart/form-data" class="student-form">
+        <input type="hidden" id="hiddenStudentId" /><label
+          >Name<input type="text" id="updateName" name="name" required /></label
+        ><label
+          >Email<input
+            type="email"
+            id="updateEmail"
+            name="email"
+            required /></label
+        ><label
+          >Phone<input
+            type="tel"
+            id="updatePhone"
+            name="phone"
+            required /></label
+        ><label
+          >Gender<select name="gender" id="updateGender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select></label
+        ><label class="full-width"
+          >Replace profile picture<input
+            type="file"
+            name="profile_pic"
+            id="updateProfilePic"
+            accept="image/*" /></label
+        ><button class="primary-button full-width" type="submit">
+          Save changes
+        </button>
+      </form>
+    </section>
+    <section class="modal logout-modal" id="logoutModal" aria-modal="true" role="dialog" aria-labelledby="logoutTitle">
+      <div class="logout-icon" aria-hidden="true">↗</div>
+      <h2 id="logoutTitle">Ready to sign out?</h2>
+      <p>You will need to enter your account details again to manage students.</p>
+      <div class="logout-actions">
+        <button class="secondary-button" type="button" onclick="closeModals()">Stay signed in</button>
+        <button class="danger-button" id="confirmLogoutButton" type="button" onclick="confirmLogout()">Sign out</button>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
